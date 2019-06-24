@@ -8,11 +8,11 @@
     min-height: 100vh;
   }
   
-   /* .bg-image {  
-    background-image: url('https://picsum.photos/400/300?random=1');
+ .bg-image {   
+     background-image: url('https://source.unsplash.com/WEQbe2jBg40/600x1200'); 
     background-size: cover;
     background-position: center;
-  }*/
+   }
   
   .login-heading {
     font-weight: 300;
