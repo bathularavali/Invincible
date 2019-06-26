@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var http = require('http')
+var http = require('http');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var debug = require('debug')('invincible:server');
@@ -27,6 +27,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/api/test', (req, res) => {
   res.send('Hello World!');
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
 
 // catch 404 and forward to error handler
