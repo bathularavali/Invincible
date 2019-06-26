@@ -1,22 +1,23 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var http = require('http');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var debug = require('debug')('invincible:server');
 var mongoose = require('mongoose');
-
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 
 var app = express();
 mongoose.Promise = global.Promise;
-// mongoose.connect('mongodb+srv://dbUser:<password>@cluster0-iqr5e.mongodb.net/test?retryWrites=true&w=majority');
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/invincible',
+  {
+    useNewUrlParser: true
+  }
+);
 
-mongoose.connect('mongodb://localhost:27017/lifestyle', { useNewUrlParser: true });
-
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+var distDir = __dirname + '/dist';
+app.use(express.static(distDir));
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -24,8 +25,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.get('/api/test', (req, res) => {
+  res.send('Hello World!');
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -43,4 +49,13 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+var port = process.env.PORT || 3000;
+app.set('port', port);
+
+var server = http.createServer(app);
+server.listen(port);
+
+server.on('listening', () => {
+  var port = server.address().port;
+  debug('Listening on port', port);
+});
