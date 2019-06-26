@@ -1,6 +1,6 @@
 .card-signin .card-img-left {
   width: 45%;
   /* Link to your background image using in the property below! */
-  background: scroll center url("https://picsum.photos/400/300?random=1");
+  background: scroll center url('https://picsum.photos/600/600?random=1');
   background-size: cover;
 }
