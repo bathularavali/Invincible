@@ -16,7 +16,7 @@ import { HomepageComponent } from './homepage/homepage.component';
     LoginComponent,
     RegisterComponent,
     FooterComponent,
-    HomepageComponent
+    HomepageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
