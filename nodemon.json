@@ -1,0 +1,5 @@
+{
+  "env": {
+    "MONGODB_URI": "mongodb+srv://invincible:invincible@cluster0-a5ctk.mongodb.net/invincible?retryWrites=true&w=majority"
+  }
+}
