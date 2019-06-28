@@ -5,30 +5,10 @@ const http = require('http');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const debug = require('debug')('invincible:server');
-const Grid = require('gridfs-stream');
 const methodOverride = require('method-override');
-const mongoose = require('mongoose');
-
-const postRoutes = require('./api/routes/posts');
+const postRoutes = require('./api');
 
 const app = express();
-// Mongo URI
-const mongoURI =
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/invincible';
-
-// Create mongo connection
-mongoose.connect(mongoURI, { useNewUrlParser: true });
-mongoose.Promise = global.Promise;
-
-// Init gfs
-let gfs;
-
-conn = mongoose.connection;
-conn.once('open', () => {
-  // Init stream
-  gfs = Grid(conn.db, mongoose.mongo);
-  gfs.collection('posts');
-});
 
 // The angular deployment
 const distDir = __dirname + '/dist';
@@ -40,7 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.use('/api/posts', postRoutes);
+app.use('/posts', postRoutes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
