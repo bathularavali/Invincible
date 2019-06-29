@@ -21,7 +21,10 @@ export class PostService {
   // }
   createPost(formData) {
     return this.http
-      .post<any>(`${this.endpoint}/posts/create`, formData)
+      .post<any>(`${this.endpoint}/posts`, formData)
       .subscribe(res => console.log(res), err => console.log(err));
+  }
+  getPost(postId: string): Observable<any> {
+    return this.http.get(`${this.endpoint}/posts/${postId}`);
   }
 }
