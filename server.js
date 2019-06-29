@@ -5,9 +5,6 @@ const http = require('http');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const debug = require('debug')('invincible:server');
-const methodOverride = require('method-override');
-const postRoutes = require('./api');
-
 const app = express();
 
 // The angular deployment
@@ -19,9 +16,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'));
-app.use('/posts', postRoutes);
 
+// for unmatched paths
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'dist/index.html'));
+});
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -41,12 +40,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-// for unmatched paths
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'dist/index.html'));
-});
-
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.set('port', port);
 
 var server = http.createServer(app);

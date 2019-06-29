@@ -240,7 +240,7 @@ var FooterComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJzcmMvYXBwL2hvbWVwYWdlL2hvbWVwYWdlLmNvbXBvbmVudC5jc3MifQ== */"
+module.exports = ".post-img {\n  width: 100%;\n  min-height: 100px;\n}\n.posts {\n  max-height: 200px;\n  overflow: hidden;\n}\n\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvaG9tZXBhZ2UvaG9tZXBhZ2UuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLFdBQVc7RUFDWCxpQkFBaUI7QUFDbkI7QUFDQTtFQUNFLGlCQUFpQjtFQUNqQixnQkFBZ0I7QUFDbEIiLCJmaWxlIjoic3JjL2FwcC9ob21lcGFnZS9ob21lcGFnZS5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLnBvc3QtaW1nIHtcbiAgd2lkdGg6IDEwMCU7XG4gIG1pbi1oZWlnaHQ6IDEwMHB4O1xufVxuLnBvc3RzIHtcbiAgbWF4LWhlaWdodDogMjAwcHg7XG4gIG92ZXJmbG93OiBoaWRkZW47XG59XG4iXX0= */"
 
 /***/ }),
 
@@ -251,7 +251,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<!-- Page Content -->\n<div class=\"container\">\n  <div class=\"row text-center text-lg-left mt-5\">\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/pWkk7iiCoDM/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/aob0ukAYfuI/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/EUfxH-pze7s/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/M185_qYH8vg/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/sesveuG_rNo/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/AvhMzHwiE_0/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/2gYsZUmockw/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/EMSDtjVHdQ8/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/8mUEy0ABdNE/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/G9Rfc1qccH4/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/aJeH0KcFkuc/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n    <div class=\"col-lg-3 col-md-4 col-6\">\n      <a href=\"#\" class=\"d-block mb-4 h-100\">\n        <img\n          class=\"img-fluid img-thumbnail\"\n          src=\"https://source.unsplash.com/p2TQ-3Bh3Oo/400x300\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n  </div>\n</div>\n<!-- /.container -->\n"
+module.exports = "<!-- Page Content -->\n<div class=\"container\">\n  <div class=\"row text-center text-lg-left mt-5\">\n    <div *ngFor=\"let post of posts\" class=\"col-lg-3 col-md-4 col-6 posts mb-4\">\n      <a href=\"#\" class=\"d-block h-100\">\n        <img\n          class=\"img-fluid img-thumbnail post-img\"\n          [src]=\"'posts/' + post.imagePath\"\n          alt=\"\"\n        />\n      </a>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -267,12 +267,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomepageComponent", function() { return HomepageComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _post_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../post.service */ "./src/app/post.service.ts");
+
 
 
 var HomepageComponent = /** @class */ (function () {
-    function HomepageComponent() {
+    function HomepageComponent(postService) {
+        this.postService = postService;
     }
     HomepageComponent.prototype.ngOnInit = function () {
+        this.getPosts();
+    };
+    HomepageComponent.prototype.getPosts = function () {
+        var _this = this;
+        this.postService.getPosts().subscribe(function (data) {
+            _this.posts = data.posts;
+        });
     };
     HomepageComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -280,7 +290,7 @@ var HomepageComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./homepage.component.html */ "./src/app/homepage/homepage.component.html"),
             styles: [__webpack_require__(/*! ./homepage.component.css */ "./src/app/homepage/homepage.component.css")]
         }),
-        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"]])
     ], HomepageComponent);
     return HomepageComponent;
 }());
@@ -339,6 +349,43 @@ var LoginComponent = /** @class */ (function () {
         tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [])
     ], LoginComponent);
     return LoginComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/post.service.ts":
+/*!*********************************!*\
+  !*** ./src/app/post.service.ts ***!
+  \*********************************/
+/*! exports provided: PostService */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PostService", function() { return PostService; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
+/* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm5/http.js");
+
+
+
+var PostService = /** @class */ (function () {
+    function PostService(http) {
+        this.http = http;
+        this.endpoint = 'http://localhost:3000/posts';
+    }
+    PostService.prototype.getPosts = function () {
+        return this.http.get(this.endpoint);
+    };
+    PostService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+        Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
+            providedIn: 'root'
+        }),
+        tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpClient"]])
+    ], PostService);
+    return PostService;
 }());
 
 

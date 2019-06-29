@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 m-auto">
+      <h1 class="text-center display-4 my-4">Add a Post</h1>
+      <form
+        [formGroup]="myForm"
+        enctype="multipart/form-data"
+        (ngSubmit)="onSubmit()"
+      >
+        Value: {{ myForm.value | json }}
+        <hr />
+        <div class="custom-file form-group mb-4">
+          <label for="file" class="custom-file-label form-control-file">{{
+            filename
+          }}</label>
+          <input
+            type="file"
+            name="upload"
+            id="upload"
+            class="custom-file-input"
+            (change)="onFileSelect($event)"
+          />
+        </div>
+        <div class="form-group mb-4">
+          <label for="caption">Caption</label>
+          <textarea
+            class="form-control"
+            name="caption"
+            id="caption"
+            formControlName="caption"
+          ></textarea>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+      </form>
+      <!-- <form
+        action="http://localhost:3000/posts/create"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="custom-file form-group mb-4">
+          <input type="file" name="file" id="file" class="custom-file-input" />
+          <label for="file" class="custom-file-label">Choose File</label>
+        </div>
+        <input type="submit" value="Submit" class="btn btn-primary btn-block" />
+      </form> -->
+    </div>
+  </div>
+</div>

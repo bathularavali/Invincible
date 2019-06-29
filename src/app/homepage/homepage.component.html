@@ -1,114 +1,15 @@
 <!-- Page Content -->
+<app-post></app-post>
 <div class="container">
   <div class="row text-center text-lg-left mt-5">
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
+    <div *ngFor="let post of posts" class="col-lg-3 col-md-4 col-6 posts mb-4">
+      <a href="#" class="d-block h-100">
         <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/pWkk7iiCoDM/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/aob0ukAYfuI/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/EUfxH-pze7s/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/M185_qYH8vg/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/sesveuG_rNo/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/AvhMzHwiE_0/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/2gYsZUmockw/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/EMSDtjVHdQ8/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/8mUEy0ABdNE/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/G9Rfc1qccH4/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/aJeH0KcFkuc/400x300"
-          alt=""
-        />
-      </a>
-    </div>
-    <div class="col-lg-3 col-md-4 col-6">
-      <a href="#" class="d-block mb-4 h-100">
-        <img
-          class="img-fluid img-thumbnail"
-          src="https://source.unsplash.com/p2TQ-3Bh3Oo/400x300"
+          class="img-fluid img-thumbnail post-img"
+          [src]="'http://localhost:3000/posts/' + post.imagePath"
           alt=""
         />
       </a>
     </div>
   </div>
 </div>
-<!-- /.container -->
