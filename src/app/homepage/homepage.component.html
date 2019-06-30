@@ -1,12 +1,12 @@
 <!-- Page Content -->
-<app-post></app-post>
+<app-post *ngIf="auth.loggedIn()"></app-post>
 <div class="container">
   <div class="row text-center text-lg-left mt-5">
     <div *ngFor="let post of posts" class="col-lg-3 col-md-4 col-6 posts mb-4">
-      <a href="#" class="d-block h-100">
+      <a [routerLink]="'/detail/' + post._id" class="d-block h-100">
         <img
           class="img-fluid img-thumbnail post-img"
-          [src]="'http://localhost:3000/posts/' + post.imagePath"
+          [src]="'http://localhost:3000/api/' + post.imagePath"
           alt=""
         />
       </a>

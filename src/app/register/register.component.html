@@ -11,6 +11,8 @@
             <form class="form-signin">
               <div class="form-label-group">
                 <input
+                  [(ngModel)]="registerUserData.username"
+                  name="username"
                   type="text"
                   id="inputUserame"
                   class="form-control"
@@ -23,6 +25,8 @@
 
               <div class="form-label-group">
                 <input
+                  [(ngModel)]="registerUserData.email"
+                  name="email"
                   type="email"
                   id="inputEmail"
                   class="form-control"
@@ -36,6 +40,8 @@
 
               <div class="form-label-group">
                 <input
+                  [(ngModel)]="registerUserData.password"
+                  name="password"
                   type="password"
                   id="inputPassword"
                   class="form-control"
@@ -45,8 +51,10 @@
                 <label for="inputPassword">Password</label>
               </div>
 
-              <div class="form-label-group">
+              <!-- <div class="form-label-group">
                 <input
+                  [(ngModel)]="registerUserData.confirmedPassword"
+                  name="confirmedPassword"
                   type="password"
                   id="inputConfirmPassword"
                   class="form-control"
@@ -54,15 +62,21 @@
                   required
                 />
                 <label for="inputConfirmPassword">Confirm password</label>
-              </div>
+              </div> -->
 
               <button
                 class="btn btn-lg btn-dark btn-block text-uppercase"
-                type="submit"
+                type="button"
+                (click)="registerUser()"
               >
                 Register
               </button>
-              <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+              <a
+                class="d-block text-center mt-2 small"
+                routerLink="/login"
+                routerLinkActive="active"
+                >Sign In</a
+              >
               <hr class="my-4" />
             </form>
           </div>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 m-auto">
+      <h1 class="text-center display-4 my-4">{{ username }}</h1>
+      <hr />
+      <div *ngFor="let post of posts" class="row align-items-center my-5">
+        <div class="col-lg-6 col-md-6 col-6 post">
+          <a [routerLink]="'/detail/' + post._id" class="d-block">
+            <img
+              class="img-fluid img-thumbnail"
+              [src]="'http://localhost:3000/api/' + post.imagePath"
+              alt=""
+            />
+          </a>
+          <button
+            *ngIf="loggedInUser"
+            class="btn-sm btn btn-outline-danger  mt-1"
+            (click)="deletePost(post._id)"
+          >
+            <i class="material-icons">delete</i>
+          </button>
+        </div>
+        <div class="col">
+          <div class="row">
+            <a routerLink=".">{{ post.hashtag }}</a>
+          </div>
+          <div class="row mb-2">
+            {{ post.caption }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

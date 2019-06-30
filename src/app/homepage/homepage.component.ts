@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../post';
-import { PostService } from '../post.service';
+import { AuthService } from '../services/auth.service';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-homepage',
@@ -10,7 +11,7 @@ import { PostService } from '../post.service';
 export class HomepageComponent implements OnInit {
   private posts: Post[];
 
-  constructor(private postService: PostService) {}
+  constructor(private auth: AuthService, private postService: PostService) {}
 
   ngOnInit() {
     this.getPosts();

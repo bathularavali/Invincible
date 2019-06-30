@@ -151,8 +151,3 @@ a {
     color: #777;
   }
 }
-
-#sticky-footer {
-  flex-shrink: 0;
-  /* height: 100%; */
-}

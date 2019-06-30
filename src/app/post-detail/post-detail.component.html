@@ -1,24 +1,29 @@
 <div class="container">
-  <div *ngIf="post" class="row align-items-center">
-    <div class="col-lg-6 order-lg-2">
-      <div class="p-5">
-        <img
-          class="img-fluid rounded-circle"
-          [src]="'http://localhost:3000/posts/' + post.imagePath"
-          alt=""
-        />
-      </div>
-    </div>
-    <div class="col-lg-6 order-lg-1">
-      <div class="p-5">
-        <h2 class="display-4">Let there be rock!</h2>
-        <p>
-          {{ post.caption }}
-          <!-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
-          aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam
-          exercitationem, ea animi blanditiis recusandae! Ratione voluptatum
-          molestiae adipisci, beatae obcaecati. -->
-        </p>
+  <div class="row">
+    <div class="col-md-8 m-auto">
+      <div *ngIf="post" class="row align-items-center">
+        <div class="col-lg-4 order-lg-1">
+          <div class="p-4">
+            <img
+              class="img-fluid"
+              [src]="'http://localhost:3000/api/' + post.imagePath"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="col-lg-8 order-lg-2">
+          <div class="p-5">
+            <h6>{{ post.caption }}</h6>
+            <p>
+              <a routerLink=".">{{ post.hashtag }}</a>
+            </p>
+            <p *ngIf="auth.loggedIn()">
+              <a [routerLink]="'/profile/' + post.user.userId"
+                >{{ post.user.username }}
+              </a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

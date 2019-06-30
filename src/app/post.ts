@@ -1,5 +1,10 @@
 export class Post {
-  id: number;
+  _id: string;
+  hashtag: string;
   caption: string;
-  imagePath: string;j
+  imagePath: string;
+  user: {
+    userId: string;
+    username: string;
+  };
 }

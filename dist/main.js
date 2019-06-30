@@ -374,7 +374,7 @@ __webpack_require__.r(__webpack_exports__);
 var PostService = /** @class */ (function () {
     function PostService(http) {
         this.http = http;
-        this.endpoint = 'http://localhost:3000/posts';
+        this.endpoint = 'http://localhost:3000/api';
     }
     PostService.prototype.getPosts = function () {
         return this.http.get(this.endpoint);
