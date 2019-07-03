@@ -6,9 +6,9 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PostService {
-  private endpoint = 'http://localhost:3000/api';
+  private endpoint = 'https://invincible-backend.herokuapp.com/api';
 
-  constructor(private http: HttpClient /*private socket: Socket*/) {}
+  constructor(private http: HttpClient) {}
 
   getPosts(): Observable<any> {
     return this.http.get(this.endpoint);
