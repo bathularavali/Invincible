@@ -1,19 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthService } from "../services/auth.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-login",
-  templateUrl: "./login.component.html",
-  styleUrls: ["./login.component.css"]
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   loginUserData: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
-  error = "";
+  error = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,8 +23,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.loginUserData = this.formBuilder.group({
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", Validators.required]
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
   }
   get f() {
@@ -39,15 +39,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.loading = true;
-    this.auth.loginUser(this.loginUserData).subscribe(res => {
-      localStorage.setItem("token", res.token);
-      this.router.navigate(["/"]);
-    });
-  }
-  /* loginUser() {
-    this.auth.loginUser(this.loginUserData).subscribe(res => {
+    this.auth.loginUser(this.loginUserData.value).subscribe(res => {
       localStorage.setItem('token', res.token);
       this.router.navigate(['/']);
     });
-  }*/
+  }
 }

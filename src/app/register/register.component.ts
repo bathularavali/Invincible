@@ -1,19 +1,17 @@
-import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
-import { AuthService } from "../services/auth.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
-  selector: "app-register",
-  templateUrl: "./register.component.html",
-  styleUrls: ["./register.component.css"]
+  selector: 'app-register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  registerUserData: FormGroup;
-  loading = false;
-  submitted = false;
-  returnUrl: string;
-  error = "";
+  private registerUserData: FormGroup;
+  private loading = false;
+  private submitted = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,9 +21,9 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.registerUserData = this.formBuilder.group({
-      username: ["", Validators.required],
-      email: ["", [Validators.required, Validators.email]],
-      password: ["", Validators.required]
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
   }
   get f() {
@@ -41,15 +39,9 @@ export class RegisterComponent implements OnInit {
     }
 
     this.loading = true;
-    this.auth.registerUser(this.registerUserData).subscribe(res => {
-      localStorage.setItem("token", res.token);
-      this.router.navigate(["/"]);
-    });
-  }
-  /* registerUser() {
-    this.auth.registerUser(this.registerUserData).subscribe(res => {
+    this.auth.registerUser(this.registerUserData.value).subscribe(res => {
       localStorage.setItem('token', res.token);
       this.router.navigate(['/']);
     });
-  }*/
+  }
 }
