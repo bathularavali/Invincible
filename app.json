@@ -1,6 +1,6 @@
 {
   "name": "MEAN Study Lifestyle",
-  "description": "Study-lifestyle blog app using MEAN for AWT university project",
+  "description": "Frontend Study-lifestyle blog app using MEAN for AWT university project",
   "keywords": ["MEAN", "Angular", "Node", "MongoDB", "Express"],
   "repository": "https://github.com/bathularavali/Invincible",
   "success_url": "/",

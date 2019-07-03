@@ -1,22 +1,14 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var http = require('http');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var debug = require('debug')('invincible:server');
-var mongoose = require('mongoose');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const http = require('http');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const debug = require('debug')('invincible:server');
+const app = express();
 
-var app = express();
-mongoose.Promise = global.Promise;
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/invincible',
-  {
-    useNewUrlParser: true
-  }
-);
-
-var distDir = __dirname + '/dist';
+// The angular deployment
+const distDir = __dirname + '/dist';
 app.use(express.static(distDir));
 
 app.use(logger('dev'));
@@ -25,14 +17,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/api/test', (req, res) => {
-  res.send('Hello World!');
-});
-
+// for unmatched paths
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
 });
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -46,10 +34,13 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  // res.render('error');
+  res.json({
+    error: err
+  });
 });
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 app.set('port', port);
 
 var server = http.createServer(app);

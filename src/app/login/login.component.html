@@ -5,46 +5,65 @@
         <div class="card card-signin my-5">
           <div class="card-body">
             <h5 class="card-title text-center">Log In</h5>
-            <form class="form-signin">
+            <form
+              class="form-signin"
+              [formGroup]="loginUserData"
+              (ngSubmit)="onSubmit()"
+            >
               <div class="form-label-group">
                 <input
+                  formControlName="email"
                   type="email"
                   id="inputEmail"
                   class="form-control"
                   placeholder="Email address"
+                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
                   required
                   autofocus
                 />
                 <label for="inputEmail">Email address</label>
+                <div
+                  *ngIf="submitted && f.email.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f.email.errors.required">Email is required</div>
+                  <div *ngIf="f.email.errors.email">
+                    Email must be a valid email address
+                  </div>
+                </div>
               </div>
 
               <div class="form-label-group">
                 <input
+                  formControlName="password"
                   type="password"
                   id="inputPassword"
                   class="form-control"
                   placeholder="Password"
+                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
                   required
                 />
                 <label for="inputPassword">Password</label>
-              </div>
-
-              <div class="custom-control custom-checkbox mb-3">
-                <input
-                  type="checkbox"
-                  class="custom-control-input"
-                  id="customCheck1"
-                />
-                <label class="custom-control-label" for="customCheck1"
-                  >Remember password</label
+                <div
+                  *ngIf="submitted && f.password.errors"
+                  class="invalid-feedback"
                 >
+                  <div *ngIf="f.password.errors.required">
+                    Password is required
+                  </div>
+                </div>
               </div>
-              <button
+              <input
                 class="btn btn-lg btn-dark btn-block text-uppercase"
                 type="submit"
+                value="Sign In"
+              />
+              <a
+                class="d-block text-center mt-2 small"
+                routerLink="/register"
+                routerLinkActive="active"
+                >Sign Up</a
               >
-                Sign in
-              </button>
               <hr class="my-4" />
             </form>
           </div>

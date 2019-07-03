@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8 m-auto">
+      <div *ngIf="post" class="row align-items-center">
+        <div class="col-lg-4 order-lg-1">
+          <div class="p-4">
+            <img class="img-fluid" [src]="'https://invincible-backend.herokuapp.com/api/' + post.imagePath" alt="" />
+          </div>
+        </div>
+        <div class="col-lg-8 order-lg-2">
+          <div class="p-5">
+            <h6>{{ post.caption }}</h6>
+            <p>
+              <a routerLink=".">{{ post.hashtag }}</a>
+            </p>
+            <p *ngIf="auth.loggedIn()">
+              <a [routerLink]="'/profile/' + post.user.userId">{{ post.user.username }}
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container pb-cmnt-container">
+  <div class="row">
+      <div class="col-md-8 col-md-offset-3 m-auto">
+    <label for="comment" class="font-weight-bold">Comment:</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-3 m-auto">
+      <div class="panel panel-info">
+        <div class="panel-body">
+          <textarea placeholder="Write your comment here!" id="comment" class="pb-cmnt-textarea"></textarea>
+          <form class="form-inline">
+            <button class="btn btn-dark pull-right" type="button">Share</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 m-auto">
+      <h1 class="text-center display-4 my-4">Add a Post</h1>
+      <form
+        [formGroup]="myForm"
+        enctype="multipart/form-data"
+        (ngSubmit)="onSubmit()"
+      >
+        <hr />
+        <div class="custom-file form-group mb-4">
+          <label for="file" class="custom-file-label form-control-file">{{
+            filename
+          }}</label>
+          <input
+            type="file"
+            name="upload"
+            id="upload"
+            class="form-control custom-file-input"
+            (change)="onFileSelect($event)"
+          />
+        </div>
+        <div class="form-group mb-4">
+          <label for="caption">Caption</label>
+          <textarea
+            [ngClass]="{
+              'is-invalid':
+                f.caption.errors && (f.caption.touched || f.caption.dirty)
+            }"
+            class="form-control"
+            name="caption"
+            id="caption"
+            formControlName="caption"
+          ></textarea>
+        </div>
+        <input type="submit" value="Post" class="btn btn-primary btn-block" />
+      </form>
+    </div>
+  </div>
+</div>
