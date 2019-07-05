@@ -8,7 +8,7 @@ import { tap } from 'rxjs/operators';
 })
 export class PostService {
   private _refreshNeeded$ = new Subject<void>();
-  private endpoint = 'api';
+  private endpoint = 'https://invincible-backend.herokuapp.com/api';
 
   constructor(private http: HttpClient) {}
 

@@ -9,11 +9,11 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post-detail.component.css']
 })
 export class PostDetailComponent implements OnInit {
-  private postId: string;
-  private post: any;
+  postId: string;
+  post: any;
   constructor(
     private route: ActivatedRoute,
-    private auth: AuthService,
+    public auth: AuthService,
     private postService: PostService
   ) {}
 

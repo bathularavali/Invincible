@@ -10,10 +10,10 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  private loggedInUser = true; // can be improved
-  private userId;
-  private username = 'My Posts';
-  private posts: any[];
+  loggedInUser = true; // can be improved
+  userId;
+  username = 'My Posts';
+  posts: any[];
 
   constructor(
     private route: ActivatedRoute,

@@ -9,11 +9,11 @@ import { PostService } from '../../services/post.service';
   styleUrls: ['./comment.component.css']
 })
 export class CommentComponent implements OnInit {
-  @Input() private comments;
-  @Input() private postId: string;
-  private myComment: FormGroup;
-  private loading = false;
-  private submitted = false;
+  @Input() comments;
+  @Input() postId: string;
+  myComment: FormGroup;
+  loading = false;
+  submitted = false;
 
   constructor(
     private route: ActivatedRoute,

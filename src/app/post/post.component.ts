@@ -9,8 +9,8 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  private myForm: FormGroup;
-  private filename = 'Select an image';
+  myForm: FormGroup;
+  filename = 'Select an image';
   constructor(
     private router: Router,
     private fb: FormBuilder,

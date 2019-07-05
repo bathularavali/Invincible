@@ -8,9 +8,9 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  private posts: any[];
+  posts: any[];
 
-  constructor(private auth: AuthService, private postService: PostService) {}
+  constructor(public auth: AuthService, private postService: PostService) {}
 
   ngOnInit() {
     this.postService.refreshNeeded$.subscribe(() => {
