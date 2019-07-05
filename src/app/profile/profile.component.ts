@@ -53,8 +53,8 @@ export class ProfileComponent implements OnInit {
       },
       err => {
         if (err instanceof HttpErrorResponse) {
-          if (err.status === 401) {
-            this.router.navigate(['/login']);
+          if (err.status === 400) {
+            this.auth.logoutUser();
           }
         }
       }

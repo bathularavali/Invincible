@@ -20,6 +20,7 @@ export class PostDetailComponent implements OnInit {
   ngOnInit() {
     this.postService.refreshNeeded$.subscribe(() => {
       this.getPostDetail();
+      // this.postId = '';
     });
     this.getPostDetail();
   }
@@ -28,6 +29,9 @@ export class PostDetailComponent implements OnInit {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.postId = params.get('id');
       this.postService.getPost(this.postId).subscribe(data => {
+        if (!data) {
+          return;
+        }
         this.post = data.post;
         this.post.comments.sort(
           (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()

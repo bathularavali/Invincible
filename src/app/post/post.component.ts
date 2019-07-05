@@ -49,8 +49,6 @@ export class PostComponent implements OnInit {
     formData.append('file', this.myForm.get('upload').value);
     formData.append('caption', this.myForm.get('caption').value);
 
-    this.postService.createPost(formData).subscribe(() => {
-      // window.location.reload();
-    });
+    this.postService.createPost(formData).subscribe(() => {});
   }
 }
