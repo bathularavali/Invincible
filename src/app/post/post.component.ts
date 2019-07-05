@@ -18,6 +18,12 @@ export class PostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.postService.refreshNeeded$.subscribe(() => {
+      this.initForm();
+    });
+    this.initForm();
+  }
+  initForm(): void {
     this.myForm = this.fb.group({
       upload: ['', Validators.required],
       caption: ['', Validators.required]
@@ -28,14 +34,14 @@ export class PostComponent implements OnInit {
     return this.myForm.controls;
   }
 
-  onFileSelect(event) {
+  onFileSelect(event): void {
     if (event.target.files.length > 0) {
       const file = event.target.files[0];
       this.myForm.get('upload').setValue(file);
       this.filename = file.name;
     }
   }
-  onSubmit() {
+  onSubmit(): void {
     if (this.myForm.invalid) {
       return;
     }
@@ -43,8 +49,8 @@ export class PostComponent implements OnInit {
     formData.append('file', this.myForm.get('upload').value);
     formData.append('caption', this.myForm.get('caption').value);
 
-    this.postService.createPost(formData).subscribe(res => {
-      window.location.reload();
+    this.postService.createPost(formData).subscribe(() => {
+      // window.location.reload();
     });
   }
 }

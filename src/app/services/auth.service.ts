@@ -7,11 +7,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  private registerUrl = 'https://invincible-backend.herokuapp.com/api/auth/register';
-  private loginUrl = 'https://invincible-backend.herokuapp.com/api/auth/login';
+  private registerUrl = 'api/auth/register';
+  private loginUrl = 'api/auth/login';
 
   // There should be a better way of identifying the loggedIn user from the client
-  private userIdUrl = 'https://invincible-backend.herokuapp.com/api/user';
+  private userIdUrl = '/api/user';
 
   constructor(private http: HttpClient, private router: Router) {}
 

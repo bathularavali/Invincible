@@ -13,6 +13,7 @@ import { PostComponent } from './post/post.component';
 import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { CommentComponent } from './post-detail/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     HomepageComponent,
     PostComponent,
     PostDetailComponent,
-    ProfileComponent
+    ProfileComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

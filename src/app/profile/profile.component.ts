@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Post } from '../post';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
 
@@ -14,7 +13,7 @@ export class ProfileComponent implements OnInit {
   private loggedInUser = true; // can be improved
   private userId;
   private username = 'My Posts';
-  private posts: Post[];
+  private posts: any[];
 
   constructor(
     private route: ActivatedRoute,
@@ -24,6 +23,13 @@ export class ProfileComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.postService.refreshNeeded$.subscribe(() => {
+      this.getUserProfile();
+    });
+    this.getUserProfile();
+  }
+
+  getUserProfile(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.userId = params.get('userId');
       this.getUserPosts();
@@ -56,8 +62,6 @@ export class ProfileComponent implements OnInit {
   }
 
   deletePost(postId: string): void {
-    this.postService.deletePost(postId).subscribe(() => {
-      window.location.reload();
-    });
+    this.postService.deletePost(postId).subscribe(() => {});
   }
 }

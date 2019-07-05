@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from '../post';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
 
@@ -9,11 +8,15 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  private posts: Post[];
+  private posts: any[];
 
   constructor(private auth: AuthService, private postService: PostService) {}
 
   ngOnInit() {
+    this.postService.refreshNeeded$.subscribe(() => {
+      this.getPosts();
+    });
+
     this.getPosts();
   }
 

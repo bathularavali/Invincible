@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
-import { Post } from '../post';
 
 @Component({
   selector: 'app-post-detail',
@@ -11,7 +10,7 @@ import { Post } from '../post';
 })
 export class PostDetailComponent implements OnInit {
   private postId: string;
-  private post: Post;
+  private post: any;
   constructor(
     private route: ActivatedRoute,
     private auth: AuthService,
@@ -19,10 +18,20 @@ export class PostDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.postService.refreshNeeded$.subscribe(() => {
+      this.getPostDetail();
+    });
+    this.getPostDetail();
+  }
+
+  getPostDetail() {
     this.route.paramMap.subscribe((params: ParamMap) => {
       this.postId = params.get('id');
       this.postService.getPost(this.postId).subscribe(data => {
         this.post = data.post;
+        this.post.comments.sort(
+          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+        );
       });
     });
   }

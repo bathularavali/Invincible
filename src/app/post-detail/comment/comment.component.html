@@ -1,0 +1,42 @@
+<div class="container pb-cmnt-container">
+  <div class="row">
+    <div class="col-md-8 col-md-offset-3 m-auto">
+      <label for="comment" class="font-weight-bold">Comment:</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-3 m-auto">
+      <div class="panel panel-info">
+        <div class="panel-body">
+          <form
+            [formGroup]="myComment"
+            class="form-inline"
+            (ngSubmit)="onSubmit()"
+          >
+            <textarea
+              [ngClass]="{ 'is-invalid': submitted && f.comment.errors }"
+              placeholder="Write your comment here!"
+              id="comment"
+              class="pb-cmnt-textarea"
+              formControlName="comment"
+            ></textarea>
+            <input
+              type="submit"
+              value="Share"
+              class="mt-2 mb-4 btn btn-dark pull-right"
+            />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngFor="let commentObj of comments">
+    <li class="comment user-comment">
+      <div class="info mr-4">
+        <a href="#">{{ commentObj.user.username }}</a>
+        <span>{{ commentObj.date | date: 'medium' }}</span>
+      </div>
+      <p>{{ commentObj.comment }}</p>
+    </li>
+  </div>
+</div>
