@@ -14,6 +14,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { CommentComponent } from './post-detail/comment/comment.component';
+import { environment } from '../environments/environment.prod';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { CommentComponent } from './post-detail/comment/comment.component';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptorService,
       multi: true
-    }
+    },
+    { provide: 'BACKEND_API_URL', useValue: environment.backendApiUrl }
   ],
   bootstrap: [AppComponent]
 })

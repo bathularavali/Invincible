@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -8,9 +8,13 @@ import { tap } from 'rxjs/operators';
 })
 export class PostService {
   private _refreshNeeded$ = new Subject<void>();
-  private endpoint = 'https://invincible-backend.herokuapp.com/api';
+  // private endpoint = 'https://invincible-backend.herokuapp.com/api';
+  private endpoint = this.apiUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    @Inject('BACKEND_API_URL') private apiUrl: string,
+    private http: HttpClient
+  ) {}
 
   get refreshNeeded$() {
     return this._refreshNeeded$;

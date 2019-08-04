@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -7,13 +7,20 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthService {
-  registerUrl = 'https://invincible-backend.herokuapp.com/api/auth/register';
-  loginUrl = 'https://invincible-backend.herokuapp.com/api/auth/login';
+  // registerUrl = 'https://invincible-backend.herokuapp.com/api/auth/register';
+  // loginUrl = 'https://invincible-backend.herokuapp.com/api/auth/login';
+  private registerUrl = `${this.apiUrl}/auth/register`;
+  private loginUrl = `${this.apiUrl}/auth/login`;
 
   // There should be a better way of identifying the loggedIn user from the client
-  private userIdUrl = 'https://invincible-backend.herokuapp.com/api/user';
+  // private userIdUrl = 'https://invincible-backend.herokuapp.com/api/user';
+  private userIdUrl = `${this.apiUrl}/user`;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(
+    @Inject('BACKEND_API_URL') private apiUrl: string,
+    private http: HttpClient,
+    private router: Router
+  ) {}
 
   registerUser(user): Observable<any> {
     return this.http.post<any>(this.registerUrl, user);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
@@ -9,9 +9,10 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./post-detail.component.css']
 })
 export class PostDetailComponent implements OnInit {
-  postId: string;
-  post: any;
+  public postId: string;
+  public post: any;
   constructor(
+    @Inject('BACKEND_API_URL') public apiUrl: string,
     private route: ActivatedRoute,
     public auth: AuthService,
     private postService: PostService

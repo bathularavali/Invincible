@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
 
@@ -8,9 +8,13 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  posts: any[];
+  public posts: any[];
 
-  constructor(public auth: AuthService, private postService: PostService) {}
+  constructor(
+    @Inject('BACKEND_API_URL') public apiUrl: string,
+    public auth: AuthService,
+    private postService: PostService
+  ) {}
 
   ngOnInit() {
     this.postService.refreshNeeded$.subscribe(() => {

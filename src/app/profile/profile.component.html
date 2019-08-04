@@ -8,9 +8,7 @@
           <a [routerLink]="'/detail/' + post._id" class="d-block">
             <img
               class="img-fluid img-thumbnail"
-              [src]="
-                'https://invincible-backend.herokuapp.com/api/' + post.imagePath
-              "
+              [src]="apiUrl + '/' + post.imagePath"
               alt=""
             />
           </a>

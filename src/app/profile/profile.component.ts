@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
@@ -10,12 +10,13 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  loggedInUser = true; // can be improved
-  userId;
-  username = 'My Posts';
-  posts: any[];
+  public loggedInUser = true; // can be improved
+  public userId;
+  public username = 'My Posts';
+  public posts: any[];
 
   constructor(
+    @Inject('BACKEND_API_URL') public apiUrl: string,
     private route: ActivatedRoute,
     private router: Router,
     private auth: AuthService,
