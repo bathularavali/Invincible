@@ -18,4 +18,4 @@ COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
 
 COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 
-ENTRYPOINT ["nginx", "-g", "daemon off;"]
+CMD sed -i -e 's/$PORT/'"$PORT"'/g' /etc/nginx/nginx.conf && nginx -g 'daemon off;'
