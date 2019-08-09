@@ -26,11 +26,8 @@ export class PostService {
     return this.http.get(`${this.endpoint}/api/post/${postId}`);
   }
 
-  getUserPosts(userId?: string): Observable<any> {
-    if (userId) {
-      return this.http.get(`${this.endpoint}/api/${userId}/posts`);
-    }
-    return this.http.get(`${this.endpoint}/api/posts`);
+  getUserPosts(userId: string): Observable<any> {
+    return this.http.get(`${this.endpoint}/api/${userId}/posts`);
   }
 
   deletePost(postId: string): Observable<any> {

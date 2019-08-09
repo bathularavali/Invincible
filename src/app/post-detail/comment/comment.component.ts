@@ -50,10 +50,9 @@ export class CommentComponent implements OnInit, OnChanges {
       return;
     }
     this.loading = true;
-    const formData = new FormData();
-    formData.append('comment', this.myComment.value);
     this.postService
       .createComment(this.myComment.value, this.postId)
-      .subscribe(() => {});
+      .subscribe();
+    this.myComment.reset();
   }
 }

@@ -40,7 +40,7 @@
           <a
             class="nav-link"
             *ngIf="auth.loggedIn()"
-            routerLink="profile"
+            [routerLink]="'profile/' + auth.getLoggedInUserId()"
             routerLinkActive="active"
             >Profile</a
           >

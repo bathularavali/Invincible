@@ -1,6 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-8 m-auto">
+      <div
+        *ngIf="deletedPostMessage"
+        class="card text-white bg-danger my-5 py-4 text-center"
+      >
+        <div class="card-body">
+          <p class="text-white m-0">
+            {{ deletedPostMessage }}
+          </p>
+        </div>
+      </div>
       <div *ngIf="post" class="row align-items-center">
         <div class="col-lg-4 order-lg-1">
           <div class="p-4">

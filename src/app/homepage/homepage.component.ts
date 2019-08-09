@@ -9,7 +9,7 @@ import { SocketService } from '../services/socket.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  public posts: any[];
+  public posts: any[] = [];
 
   constructor(
     @Inject('BACKEND_API_URL') public apiUrl: string,
@@ -20,7 +20,10 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     this.socketService.onEvent('post').subscribe(data => {
-      this.posts.push(data.createdPost);
+      this.posts = [data.createdPost, ...this.posts];
+    });
+    this.socketService.onEvent('delete').subscribe(data => {
+      this.posts = this.posts.filter(post => post._id !== data.postId);
     });
     this.getPosts();
   }

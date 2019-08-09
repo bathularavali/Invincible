@@ -12,7 +12,6 @@ export class PostComponent implements OnInit {
   myForm: FormGroup;
   filename = 'Select an image';
   constructor(
-    private router: Router,
     private fb: FormBuilder,
     private postService: PostService
   ) {}
@@ -45,7 +44,8 @@ export class PostComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.myForm.get('upload').value);
     formData.append('caption', this.myForm.get('caption').value);
+    this.myForm.reset();
 
-    this.postService.createPost(formData).subscribe(() => {});
+    this.postService.createPost(formData).subscribe();
   }
 }

@@ -10,9 +10,6 @@ export class AuthService {
   private registerUrl = `${this.apiUrl}/api/auth/register`;
   private loginUrl = `${this.apiUrl}/api/auth/login`;
 
-  // There should be a better way of identifying the loggedIn user from the client
-  private userIdUrl = `${this.apiUrl}/api/user`;
-
   constructor(
     @Inject('BACKEND_API_URL') private apiUrl: string,
     private http: HttpClient,
@@ -25,17 +22,17 @@ export class AuthService {
   loginUser(user): Observable<any> {
     return this.http.post<any>(this.loginUrl, user);
   }
-  logoutUser() {
+  logoutUser(): void {
     localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
   loggedIn(): boolean {
     return !!localStorage.getItem('token');
   }
-  getLoggedInUserId(): Observable<any> {
-    return this.http.get<any>(this.userIdUrl);
+  getLoggedInUserId(): string {
+    return localStorage.getItem('userId');
   }
-  getToken() {
+  getToken(): string {
     return localStorage.getItem('token');
   }
 }

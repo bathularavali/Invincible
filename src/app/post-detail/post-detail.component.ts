@@ -12,6 +12,7 @@ import { SocketService } from '../services/socket.service';
 export class PostDetailComponent implements OnInit {
   public postId: string;
   public post: any;
+  public deletedPostMessage: string;
   constructor(
     @Inject('BACKEND_API_URL') public apiUrl: string,
     private route: ActivatedRoute,
@@ -21,21 +22,28 @@ export class PostDetailComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.postId = params.get('id');
+    });
+    this.getPostDetail();
     this.socketService.onEvent('comment').subscribe(data => {
       this.post.comments = [...this.post.comments, data];
     });
-    this.getPostDetail();
+    this.socketService.onEvent('delete').subscribe(data => {
+      if (data.postId === this.postId) {
+        this.deletedPostMessage = 'This Post has been deleted';
+      }
+    });
   }
 
   getPostDetail() {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.postId = params.get('id');
-      this.postService.getPost(this.postId).subscribe(data => {
-        if (!data) {
-          return;
-        }
+    this.postService.getPost(this.postId).subscribe(data => {
+      if (!data) {
+        // tslint:disable-next-line: quotemark
+        this.deletedPostMessage = "This Post doesn't exist";
+      } else {
         this.post = data.post;
-      });
+      }
     });
   }
 }

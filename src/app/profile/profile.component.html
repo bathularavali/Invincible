@@ -13,7 +13,7 @@
             />
           </a>
           <button
-            *ngIf="loggedInUser"
+            *ngIf="userId === viewedUserId"
             class="btn-sm btn btn-outline-danger  mt-1"
             (click)="deletePost(post._id)"
           >
