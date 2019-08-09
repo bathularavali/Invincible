@@ -18,9 +18,6 @@ export class PostComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.postService.refreshNeeded$.subscribe(() => {
-      this.initForm();
-    });
     this.initForm();
   }
   initForm(): void {

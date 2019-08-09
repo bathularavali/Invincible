@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  backendApiUrl: 'https://invincible-backend.herokuapp.com/api'
+  backendApiUrl: 'http://localhost:3000'
 };
 
 /*

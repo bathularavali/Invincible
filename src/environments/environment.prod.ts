@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  backendApiUrl: 'https://invincible-backend.herokuapp.com/api',
+  backendApiUrl: 'https://invincible-backend.herokuapp.com',
 };

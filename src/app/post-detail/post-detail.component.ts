@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -15,13 +16,13 @@ export class PostDetailComponent implements OnInit {
     @Inject('BACKEND_API_URL') public apiUrl: string,
     private route: ActivatedRoute,
     public auth: AuthService,
-    private postService: PostService
+    private postService: PostService,
+    private socketService: SocketService
   ) {}
 
   ngOnInit() {
-    this.postService.refreshNeeded$.subscribe(() => {
-      this.getPostDetail();
-      // this.postId = '';
+    this.socketService.onEvent('comment').subscribe(data => {
+      this.post.comments = [...this.post.comments, data];
     });
     this.getPostDetail();
   }
@@ -34,9 +35,6 @@ export class PostDetailComponent implements OnInit {
           return;
         }
         this.post = data.post;
-        this.post.comments.sort(
-          (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-        );
       });
     });
   }

@@ -1,14 +1,12 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private _refreshNeeded$ = new Subject<void>();
-  // private endpoint = 'https://invincible-backend.herokuapp.com/api';
+  // private _refreshNeeded$ = new Subject<void>();
   private endpoint = this.apiUrl;
 
   constructor(
@@ -16,48 +14,35 @@ export class PostService {
     private http: HttpClient
   ) {}
 
-  get refreshNeeded$() {
-    return this._refreshNeeded$;
-  }
-
   getPosts(): Observable<any> {
-    return this.http.get(this.endpoint);
+    return this.http.get(`${this.endpoint}/api`);
   }
 
   createPost(formData): Observable<any> {
-    return this.http.post<any>(this.endpoint, formData).pipe(
-      tap(() => {
-        this._refreshNeeded$.next();
-      })
-    );
+    return this.http.post<any>(`${this.endpoint}/api`, formData);
   }
 
   getPost(postId: string): Observable<any> {
-    return this.http.get(`${this.endpoint}/post/${postId}`);
+    return this.http.get(`${this.endpoint}/api/post/${postId}`);
   }
 
   getUserPosts(userId?: string): Observable<any> {
     if (userId) {
-      return this.http.get(`${this.endpoint}/${userId}/posts`);
+      return this.http.get(`${this.endpoint}/api/${userId}/posts`);
     }
-    return this.http.get(`${this.endpoint}/posts`);
+    return this.http.get(`${this.endpoint}/api/posts`);
   }
 
   deletePost(postId: string): Observable<any> {
-    return this.http.delete(`${this.endpoint}/${postId}`).pipe(
-      tap(() => {
-        this._refreshNeeded$.next();
-      })
-    );
+    return this.http.delete(`${this.endpoint}/api/${postId}`, {
+      responseType: 'text'
+    });
   }
 
   createComment(formData, postId: string) {
-    return this.http
-      .post<any>(`${this.endpoint}/${postId}/comment`, formData)
-      .pipe(
-        tap(() => {
-          this._refreshNeeded$.next();
-        })
-      );
+    return this.http.post<any>(
+      `${this.endpoint}/api/${postId}/comment`,
+      formData
+    );
   }
 }

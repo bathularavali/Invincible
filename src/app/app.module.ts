@@ -14,7 +14,7 @@ import { PostDetailComponent } from './post-detail/post-detail.component';
 import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { CommentComponent } from './post-detail/comment/comment.component';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [

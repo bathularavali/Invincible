@@ -1,5 +1,10 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  Input,
+  SimpleChanges
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../../services/post.service';
 
@@ -8,24 +13,25 @@ import { PostService } from '../../services/post.service';
   templateUrl: './comment.component.html',
   styleUrls: ['./comment.component.css']
 })
-export class CommentComponent implements OnInit {
+export class CommentComponent implements OnInit, OnChanges {
   @Input() comments;
   @Input() postId: string;
   myComment: FormGroup;
   loading = false;
   submitted = false;
 
-  constructor(
-    private route: ActivatedRoute,
-    private fb: FormBuilder,
-    private postService: PostService
-  ) {}
+  constructor(private fb: FormBuilder, private postService: PostService) {}
 
   ngOnInit() {
-    this.postService.refreshNeeded$.subscribe(() => {
-      this.initForm();
-    });
     this.initForm();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.comments) {
+      this.comments.sort(
+        (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+      );
+    }
   }
 
   initForm(): void {

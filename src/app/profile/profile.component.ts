@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { PostService } from '../services/post.service';
+import { SocketService } from '../services/socket.service';
 
 @Component({
   selector: 'app-profile',
@@ -18,14 +19,14 @@ export class ProfileComponent implements OnInit {
   constructor(
     @Inject('BACKEND_API_URL') public apiUrl: string,
     private route: ActivatedRoute,
-    private router: Router,
     private auth: AuthService,
-    private postService: PostService
+    private postService: PostService,
+    private socketService: SocketService
   ) {}
 
   ngOnInit() {
-    this.postService.refreshNeeded$.subscribe(() => {
-      this.getUserProfile();
+    this.socketService.onEvent('delete').subscribe(data => {
+      console.log(data.message);
     });
     this.getUserProfile();
   }
