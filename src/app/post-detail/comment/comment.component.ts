@@ -17,8 +17,6 @@ export class CommentComponent implements OnInit, OnChanges {
   @Input() comments;
   @Input() postId: string;
   myComment: FormGroup;
-  loading = false;
-  submitted = false;
 
   constructor(private fb: FormBuilder, private postService: PostService) {}
 
@@ -45,11 +43,9 @@ export class CommentComponent implements OnInit, OnChanges {
   }
 
   onSubmit() {
-    this.submitted = true;
     if (this.myComment.invalid) {
       return;
     }
-    this.loading = true;
     this.postService
       .createComment(this.myComment.value, this.postId)
       .subscribe();

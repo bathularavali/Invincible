@@ -11,10 +11,7 @@ import { PostService } from '../services/post.service';
 export class PostComponent implements OnInit {
   myForm: FormGroup;
   filename = 'Select an image';
-  constructor(
-    private fb: FormBuilder,
-    private postService: PostService
-  ) {}
+  constructor(private fb: FormBuilder, private postService: PostService) {}
 
   ngOnInit() {
     this.initForm();
@@ -41,6 +38,7 @@ export class PostComponent implements OnInit {
     if (this.myForm.invalid) {
       return;
     }
+    this.filename = 'Select an image';
     const formData = new FormData();
     formData.append('file', this.myForm.get('upload').value);
     formData.append('caption', this.myForm.get('caption').value);

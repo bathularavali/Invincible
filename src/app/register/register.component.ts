@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   registerUserData: FormGroup;
-  loading = false;
   submitted = false;
 
   constructor(
@@ -38,7 +37,6 @@ export class RegisterComponent implements OnInit {
       return;
     }
 
-    this.loading = true;
     this.auth.registerUser(this.registerUserData.value).subscribe(res => {
       localStorage.setItem('token', res.token);
       localStorage.setItem('userId', res.userId);

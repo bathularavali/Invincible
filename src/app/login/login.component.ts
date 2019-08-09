@@ -10,7 +10,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   loginUserData: FormGroup;
-  loading = false;
   submitted = false;
   returnUrl: string;
   error = '';
@@ -38,7 +37,6 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loading = true;
     this.auth.loginUser(this.loginUserData.value).subscribe(res => {
       localStorage.setItem('token', res.token);
       localStorage.setItem('userId', res.userId);
