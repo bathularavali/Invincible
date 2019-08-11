@@ -1,0 +1,21 @@
+input[type='file'] {
+  display: none;
+}
+label[for='upload'] {
+  color: white;
+  width: 200px;
+  background-color: #f5af09;
+  font-size: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  padding: 7px 12px;
+}
+.btn {
+  background-color: #343a40 !important;
+}
+
+textarea {
+  resize: none;
+}

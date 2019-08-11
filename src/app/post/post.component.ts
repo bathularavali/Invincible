@@ -10,7 +10,9 @@ import { PostService } from '../services/post.service';
 })
 export class PostComponent implements OnInit {
   myForm: FormGroup;
-  filename = 'Select an image';
+  filename = '';
+  submitted = false;
+
   constructor(private fb: FormBuilder, private postService: PostService) {}
 
   ngOnInit() {
@@ -35,15 +37,18 @@ export class PostComponent implements OnInit {
     }
   }
   onSubmit(): void {
+    this.submitted = true;
     if (this.myForm.invalid) {
       return;
     }
-    this.filename = 'Select an image';
     const formData = new FormData();
     formData.append('file', this.myForm.get('upload').value);
     formData.append('caption', this.myForm.get('caption').value);
     this.myForm.reset();
 
     this.postService.createPost(formData).subscribe();
+
+    this.filename = '';
+    this.submitted = false; // reset submitted for form validation
   }
 }

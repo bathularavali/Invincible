@@ -23,6 +23,7 @@ export class AuthService {
     return this.http.post<any>(this.loginUrl, user);
   }
   logoutUser(): void {
+    localStorage.removeItem('userId');
     localStorage.removeItem('token');
     this.router.navigate(['/']);
   }
