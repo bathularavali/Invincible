@@ -13,7 +13,7 @@ import { SocketService } from '../services/socket.service';
 export class ProfileComponent implements OnInit {
   public userId;
   public viewedUserId;
-  public username = 'My Posts';
+  public username = '';
   public posts: any[] = [];
 
   constructor(
