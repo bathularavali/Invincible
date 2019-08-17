@@ -15,6 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
 import { CommentComponent } from './post-detail/comment/comment.component';
 import { environment } from '../environments/environment';
+import { HeaderComponent } from './header/header.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { environment } from '../environments/environment';
     PostComponent,
     PostDetailComponent,
     ProfileComponent,
-    CommentComponent
+    CommentComponent,
+    HeaderComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,

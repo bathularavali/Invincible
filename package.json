@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "prestart": "ngtw build",
+    "start": "ng serve & ngtw watch",
+    "build": "ngtw build && ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
@@ -34,6 +35,7 @@
     "nodemon": "^1.19.1",
     "rxjs": "~6.3.3",
     "socket.io": "^2.2.0",
+    "tailwindcss": "^1.1.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
