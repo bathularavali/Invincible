@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -37,10 +38,20 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.auth.loginUser(this.loginUserData.value).subscribe(res => {
-      localStorage.setItem('token', res.token);
-      localStorage.setItem('userId', res.userId);
-      this.router.navigate(['/']);
-    });
+    this.auth.loginUser(this.loginUserData.value).subscribe(
+      res => {
+        localStorage.setItem('token', res.token);
+        localStorage.setItem('userId', res.userId);
+        this.router.navigate(['/']);
+      },
+      err => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.loginUserData.reset();
+            this.submitted = false;
+          }
+        }
+      }
+    );
   }
 }
