@@ -42,4 +42,8 @@ export class PostService {
       formData
     );
   }
+
+  search(searchTerm: string): Observable<any> {
+    return this.http.get(`${this.endpoint}/api/search?q=${searchTerm}`);
+  }
 }

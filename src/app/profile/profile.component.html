@@ -22,7 +22,11 @@
         </div>
         <div class="col">
           <div class="row">
-            <a routerLink=".">{{ post.hashtag }}</a>
+            <a
+              routerLink="/search"
+              [queryParams]="{ q: post.hashtag.slice(1) }"
+              >{{ post.hashtag }}</a
+            >
           </div>
           <div class="row mb-2">
             {{ post.caption }}

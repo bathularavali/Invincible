@@ -11,13 +11,13 @@ import { SocketService } from '../services/socket.service';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  public userId;
-  public viewedUserId;
-  public username = '';
-  public posts: any[] = [];
+  private userId;
+  private viewedUserId;
+  private username = '';
+  private posts: any[] = [];
 
   constructor(
-    @Inject('BACKEND_API_URL') public apiUrl: string,
+    @Inject('BACKEND_API_URL') private apiUrl: string,
     private route: ActivatedRoute,
     private auth: AuthService,
     private postService: PostService,

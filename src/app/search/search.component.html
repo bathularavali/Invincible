@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="row">
+    <div class="col m-auto">
+      <h6>
+        Search results for:
+        <span class="text-info">#{{ this.searchTerm }}</span>
+      </h6>
+      <hr />
+      <div *ngIf="results" class="row">
+        <div
+          *ngFor="let post of results.posts"
+          class="col-lg-3 col-md-4 col-6 posts mb-4"
+        >
+          <a [routerLink]="'/detail/' + post._id" class="d-block h-100">
+            <img
+              class="img-fluid img-thumbnail post-img"
+              [src]="apiUrl + '/api/' + post.imagePath"
+              alt=""
+            />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
