@@ -9,11 +9,11 @@ import { SocketService } from '../services/socket.service';
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-  private posts: any[] = [];
+  public posts: any[] = [];
 
   constructor(
     @Inject('BACKEND_API_URL') private apiUrl: string,
-    private auth: AuthService,
+    public auth: AuthService,
     private postService: PostService,
     private socketService: SocketService
   ) {}

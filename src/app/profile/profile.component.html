@@ -21,15 +21,17 @@
           </button>
         </div>
         <div class="col">
-          <div class="row">
-            <a
-              routerLink="/search"
-              [queryParams]="{ q: post.hashtag.slice(1) }"
-              >{{ post.hashtag }}</a
-            >
+          <div class="row pl-3">
+            <div *ngFor="let hashtag of post.hashtag" class="pr-2">
+              <a routerLink="/search" [queryParams]="{ q: hashtag.slice(1) }">{{
+                hashtag
+              }}</a>
+            </div>
           </div>
           <div class="row mb-2">
-            {{ post.caption }}
+            <div class="col">
+              {{ post.caption }}
+            </div>
           </div>
         </div>
       </div>

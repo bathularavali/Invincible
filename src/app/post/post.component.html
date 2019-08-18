@@ -14,7 +14,7 @@
             name="caption"
             id="caption"
             formControlName="caption"
-            placeholder="Add a post"
+            placeholder="Add a post, hashtags are extracted"
           ></textarea>
           <div *ngIf="submitted && f.caption.errors" class="invalid-feedback">
             <div *ngIf="f.caption.errors.required">

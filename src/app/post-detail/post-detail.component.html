@@ -24,15 +24,16 @@
         <div class="col-lg-8 order-lg-2">
           <div class="p-5">
             <h6>{{ post.caption }}</h6>
-            <p>
-              <a
-                routerLink="/search"
-                [queryParams]="{ q: post.hashtag.slice(1) }"
-                >{{ post.hashtag }}</a
-              >
-            </p>
-            <div></div>
-            <p *ngIf="auth.loggedIn()">
+            <div class="row pl-3">
+              <div *ngFor="let hashtag of post.hashtag" class="pr-2">
+                <a
+                  routerLink="/search"
+                  [queryParams]="{ q: hashtag.slice(1) }"
+                  >{{ hashtag }}</a
+                >
+              </div>
+            </div>
+            <p *ngIf="auth.loggedIn()" class="mt-4">
               <a [routerLink]="'/profile/' + post.user.userId"
                 >{{ post.user.username }}
               </a>

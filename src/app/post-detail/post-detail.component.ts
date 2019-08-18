@@ -11,13 +11,13 @@ import { SocketService } from '../services/socket.service';
 })
 export class PostDetailComponent implements OnInit {
   private postId: string;
-  private post: any;
-  private deletedPostMessage: string;
+  public post: any;
+  public deletedPostMessage: string;
 
   constructor(
     @Inject('BACKEND_API_URL') private apiUrl: string,
     private route: ActivatedRoute,
-    private auth: AuthService,
+    public auth: AuthService,
     private postService: PostService,
     private socketService: SocketService
   ) {}

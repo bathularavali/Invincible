@@ -8,10 +8,8 @@ import { PostService } from '../services/post.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  private searchTerm: string;
-  private postResults: any[];
-  private userResult: any;
-  private results: any;
+  public searchTerm: string;
+  public results: any;
 
   constructor(
     @Inject('BACKEND_API_URL') private apiUrl: string,
@@ -23,6 +21,9 @@ export class SearchComponent implements OnInit {
     this.route.queryParamMap.subscribe((params: ParamMap) => {
       this.searchTerm = params.get('q');
       if (this.searchTerm) {
+        if (this.searchTerm.startsWith('#')) {
+          this.searchTerm = this.searchTerm.slice(1);
+        }
         this.getSearchResults(this.searchTerm);
       }
     });
@@ -30,8 +31,6 @@ export class SearchComponent implements OnInit {
 
   getSearchResults(searchTerm: string): void {
     this.postService.search(searchTerm).subscribe(data => {
-      this.userResult = data.user;
-      this.postResults = data.posts;
       this.results = data;
     });
   }

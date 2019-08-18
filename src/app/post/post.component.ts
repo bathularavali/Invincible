@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../services/post.service';
 
@@ -44,6 +43,10 @@ export class PostComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.myForm.get('upload').value);
     formData.append('caption', this.myForm.get('caption').value);
+    formData.append(
+      'hashtag',
+      this.myForm.get('caption').value.match(/#[a-zA-Z0-9_]+/gi)
+    );
     this.myForm.reset();
 
     this.postService.createPost(formData).subscribe();
