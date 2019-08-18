@@ -11,5 +11,5 @@ ng serve -o
 The frontend design uses templates from https://startbootstrap.com/snippets/
 
 ### Note
-If you've used the app before, it is possible that your browser has cached older versions of the app, which are not compatible with the latest backend.
+If you've used the app before, it is possible that your browser has older versions of the app in the cache memory, which are not compatible with the latest backend.
 Please clear the cache and cookies from your browser or use private window.
